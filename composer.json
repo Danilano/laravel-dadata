@@ -16,10 +16,8 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
-        "ext-json": "*",
-        "ext-curl": "*",
-        "guzzlehttp/guzzle": ">=6.2.0"
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "autoload": {
         "psr-4": {
@@ -39,5 +37,11 @@
                 "DadataClean": "Fomvasss\\Dadata\\Facades\\DadataClean"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Danilano/laravel-dadata"
+        }
+    ]
 }

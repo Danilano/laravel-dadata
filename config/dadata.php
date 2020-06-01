@@ -12,5 +12,5 @@ return [
 
     'secret' => env('DADATA_SECRET', ''),
 
-    'version' => env('DADATA_SUGGEST_VERSION', '4_1'),
+    'suggest_version' => env('DADATA_SUGGEST_VERSION', '4_1'),
 ];

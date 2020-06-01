@@ -149,7 +149,7 @@ class ClientSuggest
     {
         $this->config = config('dadata');
         $this->token = $this->config['token'];
-        $this->version = $this->config['version'];
+        $this->version = $this->config['suggest_version'];
 
         $this->httpClient = new Client();
     }

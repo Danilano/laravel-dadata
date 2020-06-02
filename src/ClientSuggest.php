@@ -207,7 +207,7 @@ class ClientSuggest
                 }
 
                 if (empty($result['suggestions'][0])) {
-                    throw new RuntimeException('Empty result');
+                    throw new RuntimeException('Empty result', 204);
                 }
 
                 return (int)$params['count'] === 1 ? $result['suggestions'][0] : $result['suggestions'];
@@ -215,30 +215,30 @@ class ClientSuggest
                 break;
             case 400:
                 // DaData Некорректный запрос
-                throw new RuntimeException('Incorrect request');
+                throw new RuntimeException('Incorrect request', $response->getStatusCode());
                 break;
             case 401:
                 // В запросе отсутствует API-ключ
-                throw new RuntimeException('Missing API key');
+                throw new RuntimeException('Missing API key', $response->getStatusCode());
                 break;
             case 403:
                 // В запросе указан несуществующий API-ключ
-                throw new RuntimeException('Incorrect API key');
+                throw new RuntimeException('Incorrect API key', $response->getStatusCode());
                 break;
             case 405:
                 // Запрос сделан с методом, отличным от POST
-                throw new RuntimeException('Request method must be POST');
+                throw new RuntimeException('Request method must be POST', $response->getStatusCode());
                 break;
             case 413:
                 // Нарушены ограничения
-                throw new RuntimeException('You push the limits of suggestions');
+                throw new RuntimeException('You push the limits of suggestions', $response->getStatusCode());
                 break;
             case 500:
                 // Произошла внутренняя ошибка сервиса во время обработки
-                throw new RuntimeException('Server internal error');
+                throw new RuntimeException('Server internal error', $response->getStatusCode());
                 break;
             default:
-                throw new RuntimeException('Unexpected error');
+                throw new RuntimeException('Unexpected error', $response->getStatusCode());
         }
     }
 
